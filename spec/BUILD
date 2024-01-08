@@ -123,3 +123,20 @@ fhir_package(
     ]) + ["hl7.fhir.us.core/3.1.0/package/package.json"],
     package_info = "uscore_r4_package_info.prototxt",
 )
+
+# NL-Core Profiles for FHIR R4
+
+# fhir_package(
+#     name = "nlcore_r4_package",
+#     definitions = glob(["nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/*.json",
+#     ], exclude = [
+#                 "nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/.index*.*",
+#             ],) ,
+#     package_info = "nlcore_r4_package_info.prototxt",
+# )
+
+fhir_package(
+    name = "nlcore_r4_package",
+    definitions = [".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-AddressInformation.json",".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/ext-CodeSpecification.json"],
+    package_info = "nlcore_r4_package_info.prototxt",
+)

@@ -1,2 +1,11 @@
 # Ignore the bazel symlinks
 /bazel-*
+
+#Ignore symlink to .fhir cache
+/spec/.fhir
+
+*.lock
+*.lock.json
+
+/MODULE.bazel
+/package.json

@@ -53,6 +53,25 @@ gen_fhir_protos(
     package = "//spec:uscore_r4_package",
 )
 
+gen_fhir_protos(
+    name = "nlcore",
+    package = "//spec:nlcore_r4_package",
+)
+
+fhir_proto_library(
+    srcs = [
+        "nlcore.proto",
+    ],
+    proto_deps = [
+        "@com_google_protobuf//:any_proto",
+        "//proto/google/fhir/proto:annotations_proto",
+        "//proto/google/fhir/proto/r4/core:codes_proto",
+        "//proto/google/fhir/proto/r4/core:datatypes_proto",
+        "//proto/google/fhir/proto/r4/core:valuesets_proto",
+    ],
+    proto_library_prefix = "nlcore",
+)
+
 fhir_proto_library(
     srcs = [
         "uscore.proto",
