@@ -1,4 +1,4 @@
-module github.com/google/fhir/go
+module github.com/santeonnl/fhir-protos/go
 
 go 1.19
 

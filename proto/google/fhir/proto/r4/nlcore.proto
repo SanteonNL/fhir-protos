@@ -1,0 +1,2853 @@
+//    Copyright 2024 Google Inc.
+//
+//    Licensed under the Apache License, Version 2.0 (the "License");
+//    you may not use this file except in compliance with the License.
+//    You may obtain a copy of the License at
+//
+//        https://www.apache.org/licenses/LICENSE-2.0
+//
+//    Unless required by applicable law or agreed to in writing, software
+//    distributed under the License is distributed on an "AS IS" BASIS,
+//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//    See the License for the specific language governing permissions and
+//    limitations under the License.
+
+syntax = "proto3";
+
+package santeon.fhir.r4.nlcore;
+
+import "google/protobuf/any.proto";
+import "proto/google/fhir/proto/annotations.proto";
+import "proto/google/fhir/proto/r4/core/codes.proto";
+import "proto/google/fhir/proto/r4/core/datatypes.proto";
+import "proto/google/fhir/proto/r4/core/extensions.proto";
+
+option (.google.fhir.proto.fhir_version) = R4;
+
+// Auto-generated from StructureDefinition for ExtAddressInformationAddressType.
+// Optional Extensions Element.
+// See http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType
+message AddressExtAddressInformationAddressType {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType";
+  // Unique id for inter-element referencing
+  .google.fhir.r4.core.String id = 1;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 2;
+
+  // AddressType
+  .google.fhir.r4.core.CodeableConcept value_codeable_concept = 3;
+}
+
+// Auto-generated from StructureDefinition for ExtCodeSpecification.
+// Optional Extensions Element.
+// See http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification
+message ExtCodeSpecification {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification";
+  // Unique id for inter-element referencing
+  .google.fhir.r4.core.String id = 1;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 2;
+
+  // Value of extension
+  .google.fhir.r4.core.CodeableConcept value_codeable_concept = 3;
+}
+
+// Auto-generated from StructureDefinition for ExtComment.
+// Optional Extensions Element.
+// See http://nictiz.nl/fhir/StructureDefinition/ext-Comment
+message ExtComment {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment";
+  // Unique id for inter-element referencing
+  .google.fhir.r4.core.String id = 1;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 2;
+
+  // Value of extension
+  .google.fhir.r4.core.String value_string = 3;
+}
+
+// Auto-generated from StructureDefinition for NlcoreAddressInformation.
+// AddressInformation.
+// See http://nictiz.nl/fhir/StructureDefinition/nl-core-AddressInformation
+message NlcoreAddressInformation {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Address";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/nl-core-AddressInformation";
+  // Unique id for inter-element referencing
+  .google.fhir.r4.core.String id = 1;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 2;
+
+  // AddressType
+  message UseCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/address-use";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.AddressUseCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  UseCode use = 3;
+
+  // AddressType
+  message TypeCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/address-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.AddressTypeCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  TypeCode type = 4;
+
+  // Text representation of the address
+  .google.fhir.r4.core.String text = 5;
+
+  // Street name, number, direction & P.O. Box etc.
+  message StringForLine {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.value_regex) = "[ \\r\\n\\t\\S]+";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/string";
+    // Primitive value for string
+    string value = 1;
+
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 2;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 3;
+
+    // streetName
+    .google.fhir.r4.core.String street_name = 4 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"];
+
+    // houseNumber
+    .google.fhir.r4.core.String house_number = 5 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"];
+
+    // buildingNumberSuffix
+    .google.fhir.r4.core.String house_number_letter_house_number_addition = 6 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix"];
+
+    // additionalLocator
+    .google.fhir.r4.core.String house_number_indication = 7 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"];
+
+    // unitID
+    .google.fhir.r4.core.String additional_information = 8 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-unitID"];
+  }
+  repeated StringForLine line = 6;
+
+  // PlaceOfResidence
+  .google.fhir.r4.core.String city = 7;
+
+  // Municipality
+  .google.fhir.r4.core.String district = 8;
+
+  // Sub-unit of country (abbreviations ok)
+  .google.fhir.r4.core.String state = 9;
+
+  // Postcode
+  .google.fhir.r4.core.String postal_code = 10;
+
+  // Country (e.g. can be ISO 3166 2 or 3 letter code)
+  message StringForCountry {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.value_regex) = "[ \\r\\n\\t\\S]+";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/string";
+    // Primitive value for string
+    string value = 1;
+
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 2;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 3;
+
+    // Optional Extensions Element
+    .google.fhir.r4.core.CodeableConcept country_code = 4 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"];
+  }
+  StringForCountry country = 11;
+
+  // Time period when address was/is in use
+  .google.fhir.r4.core.Period period = 12 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+  // Optional Extensions Element
+  .google.fhir.r4.core.CodeableConcept address_type = 13 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"];
+}
+
+// Auto-generated from StructureDefinition for NlcoreHealthProfessionalPractitioner.
+// HealthProfessional.
+// See http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner
+message NlcoreHealthProfessionalPractitioner {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://nictiz.nl/fhir/StructureDefinition/zib-HealthProfessional-Practitioner";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Practitioner";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "active"
+    type: TOKEN
+    expression: "Practitioner.active"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address"
+    type: STRING
+    expression: "Patient.address | Person.address | Practitioner.address | RelatedPerson.address"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-city"
+    type: STRING
+    expression: "Patient.address.city | Person.address.city | Practitioner.address.city | RelatedPerson.address.city"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-country"
+    type: STRING
+    expression: "Patient.address.country | Person.address.country | Practitioner.address.country | RelatedPerson.address.country"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-postalcode"
+    type: STRING
+    expression: "Patient.address.postalCode | Person.address.postalCode | Practitioner.address.postalCode | RelatedPerson.address.postalCode"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-state"
+    type: STRING
+    expression: "Patient.address.state | Person.address.state | Practitioner.address.state | RelatedPerson.address.state"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-use"
+    type: TOKEN
+    expression: "Patient.address.use | Person.address.use | Practitioner.address.use | RelatedPerson.address.use"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "communication"
+    type: TOKEN
+    expression: "Practitioner.communication"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "email"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='email') | Person.telecom.where(system='email') | Practitioner.telecom.where(system='email') | PractitionerRole.telecom.where(system='email') | RelatedPerson.telecom.where(system='email')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "family"
+    type: STRING
+    expression: "Patient.name.family | Practitioner.name.family"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "gender"
+    type: TOKEN
+    expression: "Patient.gender | Person.gender | Practitioner.gender | RelatedPerson.gender"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "given"
+    type: STRING
+    expression: "Patient.name.given | Practitioner.name.given"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "Practitioner.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "name"
+    type: STRING
+    expression: "Practitioner.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phone"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='phone') | Person.telecom.where(system='phone') | Practitioner.telecom.where(system='phone') | PractitionerRole.telecom.where(system='phone') | RelatedPerson.telecom.where(system='phone')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phonetic"
+    type: STRING
+    expression: "Patient.name | Person.name | Practitioner.name | RelatedPerson.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "telecom"
+    type: TOKEN
+    expression: "Patient.telecom | Person.telecom | Practitioner.telecom | PractitionerRole.telecom | RelatedPerson.telecom"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: Practitioner.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+ 
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // HealthProfessionalIdentificationNumber
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // Whether this practitioner's record is in active use
+  .google.fhir.r4.core.Boolean active = 11;
+
+  // NameInformation
+  repeated .google.fhir.r4.core.HumanName name = 12;
+
+  // ContactInformation
+  repeated .google.fhir.r4.core.ContactPoint telecom = 13 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+  // AddressInformation
+  repeated NlcoreAddressInformation address = 14;
+
+  // Gender
+  message GenderCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.AdministrativeGenderCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  GenderCode gender = 15;
+
+  // The date  on which the practitioner was born
+  .google.fhir.r4.core.Date birth_date = 16;
+
+  // Image of the person
+  repeated .google.fhir.r4.core.Attachment photo = 17 [(.google.fhir.proto.fhir_path_constraint) = "data.empty() or contentType.exists()"];
+
+  // Certification, licenses, or training pertaining to the provision of care
+  message Qualification {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // An identifier for this qualification for the practitioner
+    repeated .google.fhir.r4.core.Identifier identifier = 4;
+
+    // Coded representation of the qualification
+    .google.fhir.r4.core.CodeableConcept code = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Period during which the qualification is valid
+    .google.fhir.r4.core.Period period = 6 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+    // Organization that regulates and issues the qualification
+    .google.fhir.r4.core.Reference issuer = 7 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+  }
+  repeated Qualification qualification = 18;
+
+  // A language the practitioner can use in patient communication
+  repeated .google.fhir.r4.core.CodeableConcept communication = 19;
+
+  // field 20 reserved for Practitioner.identifier:big which uses an unsupported slicing on Identifier
+  reserved 20;
+
+  // field 21 reserved for Practitioner.identifier:uzi which uses an unsupported slicing on Identifier
+  reserved 21;
+
+  // field 22 reserved for Practitioner.identifier:agb which uses an unsupported slicing on Identifier
+  reserved 22;
+
+  // field 23 reserved for Practitioner.name:nameInformation which uses an unsupported slicing on HumanName
+  reserved 23;
+
+  // field 24 reserved for Practitioner.name:nameInformation-GivenName which uses an unsupported slicing on HumanName
+  reserved 24;
+
+  // field 25 reserved for Practitioner.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+  reserved 25;
+
+  // field 26 reserved for Practitioner.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+  reserved 26;
+
+}
+
+// Auto-generated from StructureDefinition for NlcoreHealthProfessionalPractitionerRole.
+// Roles/organizations the practitioner is associated with.
+// See http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole
+message NlcoreHealthProfessionalPractitionerRole {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://nictiz.nl/fhir/StructureDefinition/zib-HealthProfessional-PractitionerRole";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/PractitionerRole";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "active"
+    type: TOKEN
+    expression: "PractitionerRole.active"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "date"
+    type: DATE
+    expression: "PractitionerRole.period"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "email"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='email') | Person.telecom.where(system='email') | Practitioner.telecom.where(system='email') | PractitionerRole.telecom.where(system='email') | RelatedPerson.telecom.where(system='email')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "endpoint"
+    type: REFERENCE
+    expression: "PractitionerRole.endpoint"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "PractitionerRole.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "location"
+    type: REFERENCE
+    expression: "PractitionerRole.location"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "organization"
+    type: REFERENCE
+    expression: "PractitionerRole.organization"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phone"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='phone') | Person.telecom.where(system='phone') | Practitioner.telecom.where(system='phone') | PractitionerRole.telecom.where(system='phone') | RelatedPerson.telecom.where(system='phone')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "practitioner"
+    type: REFERENCE
+    expression: "PractitionerRole.practitioner"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "role"
+    type: TOKEN
+    expression: "PractitionerRole.code"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "service"
+    type: REFERENCE
+    expression: "PractitionerRole.healthcareService"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "specialty"
+    type: TOKEN
+    expression: "PractitionerRole.specialty"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "telecom"
+    type: TOKEN
+    expression: "Patient.telecom | Person.telecom | Practitioner.telecom | PractitionerRole.telecom | RelatedPerson.telecom"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: PractitionerRole.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // Business Identifiers that are specific to a role/location
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // Whether this practitioner role record is in active use
+  .google.fhir.r4.core.Boolean active = 11;
+
+  // The period during which the practitioner is authorized to perform in these role(s)
+  .google.fhir.r4.core.Period period = 12 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+  // Practitioner that is able to provide the defined services for the organization
+  .google.fhir.r4.core.Reference practitioner = 13 [(.google.fhir.proto.valid_reference_type) = "Practitioner", (.google.fhir.proto.valid_reference_type) = "Practitioner", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // HealthcareProvider
+  .google.fhir.r4.core.Reference organization = 14 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Roles which this practitioner may perform
+  repeated .google.fhir.r4.core.CodeableConcept code = 15;
+
+  // Specific specialty of the practitioner
+  repeated .google.fhir.r4.core.CodeableConcept specialty = 16;
+
+  // The location(s) at which this practitioner provides care
+  repeated .google.fhir.r4.core.Reference location = 17 [(.google.fhir.proto.valid_reference_type) = "Location", (.google.fhir.proto.valid_reference_type) = "Location", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // The list of healthcare services that this worker provides for this role's Organization/Location(s)
+  repeated .google.fhir.r4.core.Reference healthcare_service = 18 [(.google.fhir.proto.valid_reference_type) = "HealthcareService", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // ContactInformation
+  repeated .google.fhir.r4.core.ContactPoint telecom = 19 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+  // Times the Service Site is available
+  message AvailableTime {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // mon | tue | wed | thu | fri | sat | sun
+    message DaysOfWeekCode {
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/days-of-week";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+      .google.fhir.r4.core.DaysOfWeekCode.Value value = 1;
+
+      .google.fhir.r4.core.String id = 2;
+
+      repeated .google.fhir.r4.core.Extension extension = 3;
+    }
+    repeated DaysOfWeekCode days_of_week = 4;
+
+    // Always available? e.g. 24 hour service
+    .google.fhir.r4.core.Boolean all_day = 5;
+
+    // Opening time of day (ignored if allDay = true)
+    .google.fhir.r4.core.Time available_start_time = 6;
+
+    // Closing time of day (ignored if allDay = true)
+    .google.fhir.r4.core.Time available_end_time = 7;
+  }
+  repeated AvailableTime available_time = 20;
+
+  // Not available during this time due to provided reason
+  message NotAvailable {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // Reason presented to the user explaining why time not available
+    .google.fhir.r4.core.String description = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Service not available from this date
+    .google.fhir.r4.core.Period during = 5 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+  }
+  repeated NotAvailable not_available = 21;
+
+  // Description of availability exceptions
+  .google.fhir.r4.core.String availability_exceptions = 22;
+
+  // Technical endpoints providing access to services operated for the practitioner with this role
+  repeated .google.fhir.r4.core.Reference endpoint = 23 [(.google.fhir.proto.valid_reference_type) = "Endpoint", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // field 24 reserved for PractitionerRole.specialty:specialty which uses an unsupported slicing on CodeableConcept
+  reserved 24;
+
+  // field 25 reserved for PractitionerRole.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+  reserved 25;
+
+  // field 26 reserved for PractitionerRole.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+  reserved 26;
+
+}
+
+// Auto-generated from StructureDefinition for NlcoreHealthcareProvider.
+// HealthcareProvider / OrganizationLocation.
+// See http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider
+message NlcoreHealthcareProvider {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://nictiz.nl/fhir/StructureDefinition/zib-HealthcareProvider";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Location";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address"
+    type: STRING
+    expression: "Location.address"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-city"
+    type: STRING
+    expression: "Location.address.city"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-country"
+    type: STRING
+    expression: "Location.address.country"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-postalcode"
+    type: STRING
+    expression: "Location.address.postalCode"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-state"
+    type: STRING
+    expression: "Location.address.state"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-use"
+    type: TOKEN
+    expression: "Location.address.use"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "endpoint"
+    type: REFERENCE
+    expression: "Location.endpoint"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "Location.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "name"
+    type: STRING
+    expression: "Location.name | Location.alias"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "near"
+    type: SPECIAL
+    expression: "Location.position"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "operational-status"
+    type: TOKEN
+    expression: "Location.operationalStatus"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "organization"
+    type: REFERENCE
+    expression: "Location.managingOrganization"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "partof"
+    type: REFERENCE
+    expression: "Location.partOf"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "status"
+    type: TOKEN
+    expression: "Location.status"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "type"
+    type: TOKEN
+    expression: "Location.type"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: Location.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // Unique code or number identifying the location to its users
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // active | suspended | inactive
+  message StatusCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/location-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.LocationStatusCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  StatusCode status = 11;
+
+  // The operational status of the location (typically only for a bed/room)
+  .google.fhir.r4.core.Coding operational_status = 12;
+
+  // LocationName
+  .google.fhir.r4.core.String name = 13;
+
+  // A list of alternate names that the location is known as, or was known as, in the past
+  repeated .google.fhir.r4.core.String alias = 14;
+
+  // Additional details about the location that could be displayed as further information to identify the location beyond its name
+  .google.fhir.r4.core.String description = 15;
+
+  // instance | kind
+  message ModeCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/location-mode";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.LocationModeCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  ModeCode mode = 16;
+
+  // Type of function performed
+  repeated .google.fhir.r4.core.CodeableConcept type = 17;
+
+  // ContactInformation
+  repeated .google.fhir.r4.core.ContactPoint telecom = 18 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+  // AddressInformation
+  .google.fhir.r4.core.NlcoreAddressInformation address = 19;
+
+  // Physical form of the location
+  .google.fhir.r4.core.CodeableConcept physical_type = 20;
+
+  // The absolute geographic location
+  message Position {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // Longitude with WGS84 datum
+    .google.fhir.r4.core.Decimal longitude = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Latitude with WGS84 datum
+    .google.fhir.r4.core.Decimal latitude = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Altitude with WGS84 datum
+    .google.fhir.r4.core.Decimal altitude = 6;
+  }
+  Position position = 21;
+
+  // Organization responsible for provisioning and upkeep
+  .google.fhir.r4.core.Reference managing_organization = 22 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Another Location this one is physically a part of
+  .google.fhir.r4.core.Reference part_of = 23 [(.google.fhir.proto.valid_reference_type) = "Location", (.google.fhir.proto.valid_reference_type) = "Location", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // What days/times during a week is this location usually open
+  message HoursOfOperation {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // mon | tue | wed | thu | fri | sat | sun
+    message DaysOfWeekCode {
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/days-of-week";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+      .google.fhir.r4.core.DaysOfWeekCode.Value value = 1;
+
+      .google.fhir.r4.core.String id = 2;
+
+      repeated .google.fhir.r4.core.Extension extension = 3;
+    }
+    repeated DaysOfWeekCode days_of_week = 4;
+
+    // The Location is open all day
+    .google.fhir.r4.core.Boolean all_day = 5;
+
+    // Time that the Location opens
+    .google.fhir.r4.core.Time opening_time = 6;
+
+    // Time that the Location closes
+    .google.fhir.r4.core.Time closing_time = 7;
+  }
+  repeated HoursOfOperation hours_of_operation = 24;
+
+  // Description of availability exceptions
+  .google.fhir.r4.core.String availability_exceptions = 25;
+
+  // Technical endpoints providing access to services operated for the location
+  repeated .google.fhir.r4.core.Reference endpoint = 26 [(.google.fhir.proto.valid_reference_type) = "Endpoint", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // field 27 reserved for Location.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+  reserved 27;
+
+  // field 28 reserved for Location.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+  reserved 28;
+
+}
+
+// Auto-generated from StructureDefinition for NlcoreHealthcareProviderOrganization.
+// HealthcareProvider.
+// See http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization
+message NlcoreHealthcareProviderOrganization {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://nictiz.nl/fhir/StructureDefinition/zib-HealthcareProvider-Organization";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Organization";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthcareProvider-Organization";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(identifier.count() + name.count()) > 0";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "active"
+    type: TOKEN
+    expression: "Organization.active"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address"
+    type: STRING
+    expression: "Organization.address"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-city"
+    type: STRING
+    expression: "Organization.address.city"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-country"
+    type: STRING
+    expression: "Organization.address.country"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-postalcode"
+    type: STRING
+    expression: "Organization.address.postalCode"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-state"
+    type: STRING
+    expression: "Organization.address.state"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-use"
+    type: TOKEN
+    expression: "Organization.address.use"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "endpoint"
+    type: REFERENCE
+    expression: "Organization.endpoint"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "Organization.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "name"
+    type: STRING
+    expression: "Organization.name | Organization.alias"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "partof"
+    type: REFERENCE
+    expression: "Organization.partOf"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phonetic"
+    type: STRING
+    expression: "Organization.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "type"
+    type: TOKEN
+    expression: "Organization.type"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: Organization.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // HealthcareProviderIdentificationNumber
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // Whether the organization's record is still in active use
+  .google.fhir.r4.core.Boolean active = 11;
+
+  // Kind of organization
+  repeated .google.fhir.r4.core.CodeableConcept type = 12;
+
+  // OrganizationName
+  .google.fhir.r4.core.String name = 13;
+
+  // A list of alternate names that the organization is known as, or was known as in the past
+  repeated .google.fhir.r4.core.String alias = 14;
+
+  // A contact detail for the organization
+  repeated .google.fhir.r4.core.ContactPoint telecom = 15 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()", (.google.fhir.proto.fhir_path_constraint) = "where(use = 'home').empty()"];
+
+  // AddressInformation
+  repeated .google.fhir.r4.core.NlcoreAddressInformation address = 16 [(.google.fhir.proto.fhir_path_constraint) = "where(use = 'home').empty()"];
+
+  // The organization of which this organization forms a part
+  .google.fhir.r4.core.Reference part_of = 17 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Contact for the organization for a certain purpose
+  message Contact {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // The type of contact
+    .google.fhir.r4.core.CodeableConcept purpose = 4;
+
+    // NameInformation
+    .google.fhir.r4.core.NlcoreNameInformation name = 5 [(.google.fhir.proto.fhir_path_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-name').empty().not()", (.google.fhir.proto.fhir_path_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-name').empty().not()"];
+
+    // Contact details (telephone, email, etc.)  for a contact
+    repeated .google.fhir.r4.core.ContactPoint telecom = 6 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+    // AddressInformation
+    .google.fhir.r4.core.NlcoreAddressInformation address = 7;
+
+    // field 8 reserved for Organization.contact.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+    reserved 8;
+
+    // field 9 reserved for Organization.contact.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+    reserved 9;
+
+  }
+  repeated Contact contact = 18;
+
+  // Technical endpoints providing access to services operated for the organization
+  repeated .google.fhir.r4.core.Reference endpoint = 19 [(.google.fhir.proto.valid_reference_type) = "Endpoint", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // field 20 reserved for Organization.identifier:ura which uses an unsupported slicing on Identifier
+  reserved 20;
+
+  // field 21 reserved for Organization.identifier:agb which uses an unsupported slicing on Identifier
+  reserved 21;
+
+  // field 22 reserved for Organization.type:departmentSpecialty which uses an unsupported slicing on CodeableConcept
+  reserved 22;
+
+  // field 23 reserved for Organization.type:organizationType which uses an unsupported slicing on CodeableConcept
+  reserved 23;
+
+  // field 24 reserved for Organization.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+  reserved 24;
+
+  // field 25 reserved for Organization.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+  reserved 25;
+
+}
+
+// Auto-generated from StructureDefinition for NlcoreNameInformation.
+// NameInformation.
+// See http://nictiz.nl/fhir/StructureDefinition/nl-core-NameInformation
+message NlcoreNameInformation {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://nictiz.nl/fhir/StructureDefinition/zib-NameInformation";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/HumanName";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/nl-core-NameInformation";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-name').empty().not()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-name').empty().not()";
+  // Unique id for inter-element referencing
+  .google.fhir.r4.core.String id = 1;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 2;
+
+  // usual | official | temp | nickname | anonymous | old | maiden
+  message UseCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/name-use";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.NameUseCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  UseCode use = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+  // Text representation of the full name
+  .google.fhir.r4.core.String text = 4;
+
+  // Family name (often called 'Surname')
+  message StringForFamily {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.value_regex) = "[ \\r\\n\\t\\S]+";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/string";
+    // Primitive value for string
+    string value = 1;
+
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 2;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 3;
+
+    // Voorvoegsel derived from person's own surname
+    .google.fhir.r4.core.String prefix = 4 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"];
+
+    // Portion derived from person's own surname
+    .google.fhir.r4.core.String last_name = 5 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"];
+
+    // Voorvoegsel derived from person's partner's surname
+    .google.fhir.r4.core.String partner_prefix = 6 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix"];
+
+    // Portion derived from person's partner's surname
+    .google.fhir.r4.core.String partner_last_name = 7 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-partner-name"];
+  }
+  StringForFamily family = 5;
+
+  // FirstName / Initial
+  message StringForGiven {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.value_regex) = "[ \\r\\n\\t\\S]+";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/string";
+    // Primitive value for string
+    string value = 1;
+
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 2;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN | VV
+    repeated .google.fhir.r4.core.HumanNameENQualifier.ValueCode given_or_initial = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR, (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"];
+  }
+  repeated StringForGiven given = 6;
+
+  // Titles
+  repeated .google.fhir.r4.core.String prefix = 7;
+
+  // Titles
+  repeated .google.fhir.r4.core.String suffix = 8;
+
+  // Time period when name was/is in use
+  .google.fhir.r4.core.Period period = 9 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+  // Preferred display order of name parts
+  .google.fhir.r4.core.HumanNameAssemblyOrder.ValueCode name_usage = 10 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"];
+}
+
+// Auto-generated from StructureDefinition for NlcorePatient.
+// Patient.
+// See http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient
+message NlcorePatient {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://nictiz.nl/fhir/StructureDefinition/zib-Patient";
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Patient";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "Example Search Parameter on an extension"
+    type: REFERENCE
+    expression: "DocumentReference.extension('http://example.org/fhir/StructureDefinition/participation-agreement')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "active"
+    type: TOKEN
+    expression: "Patient.active"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address"
+    type: STRING
+    expression: "Patient.address | Person.address | Practitioner.address | RelatedPerson.address"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-city"
+    type: STRING
+    expression: "Patient.address.city | Person.address.city | Practitioner.address.city | RelatedPerson.address.city"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-country"
+    type: STRING
+    expression: "Patient.address.country | Person.address.country | Practitioner.address.country | RelatedPerson.address.country"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-postalcode"
+    type: STRING
+    expression: "Patient.address.postalCode | Person.address.postalCode | Practitioner.address.postalCode | RelatedPerson.address.postalCode"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-state"
+    type: STRING
+    expression: "Patient.address.state | Person.address.state | Practitioner.address.state | RelatedPerson.address.state"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-use"
+    type: TOKEN
+    expression: "Patient.address.use | Person.address.use | Practitioner.address.use | RelatedPerson.address.use"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "birthdate"
+    type: DATE
+    expression: "Patient.birthDate | Person.birthDate | RelatedPerson.birthDate"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "death-date"
+    type: DATE
+    expression: "(Patient.deceased as dateTime)"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "deceased"
+    type: TOKEN
+    expression: "Patient.deceased.exists() and Patient.deceased != false"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "email"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='email') | Person.telecom.where(system='email') | Practitioner.telecom.where(system='email') | PractitionerRole.telecom.where(system='email') | RelatedPerson.telecom.where(system='email')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "family"
+    type: STRING
+    expression: "Patient.name.family | Practitioner.name.family"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "gender"
+    type: TOKEN
+    expression: "Patient.gender | Person.gender | Practitioner.gender | RelatedPerson.gender"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "general-practitioner"
+    type: REFERENCE
+    expression: "Patient.generalPractitioner"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "given"
+    type: STRING
+    expression: "Patient.name.given | Practitioner.name.given"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "Patient.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "language"
+    type: TOKEN
+    expression: "Patient.communication.language"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "link"
+    type: REFERENCE
+    expression: "Patient.link.other"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "name"
+    type: STRING
+    expression: "Patient.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "organization"
+    type: REFERENCE
+    expression: "Patient.managingOrganization"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phone"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='phone') | Person.telecom.where(system='phone') | Practitioner.telecom.where(system='phone') | PractitionerRole.telecom.where(system='phone') | RelatedPerson.telecom.where(system='phone')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phonetic"
+    type: STRING
+    expression: "Patient.name | Person.name | Practitioner.name | RelatedPerson.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "telecom"
+    type: TOKEN
+    expression: "Patient.telecom | Person.telecom | Practitioner.telecom | PractitionerRole.telecom | RelatedPerson.telecom"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: Patient.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // PatientIdentificationNumber
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // Whether this patient's record is in active use
+  .google.fhir.r4.core.Boolean active = 11;
+
+  // NameInformation / PayerName
+  repeated .google.fhir.r4.core.HumanName name = 12;
+
+  // ContactInformation
+  repeated .google.fhir.r4.core.ContactPoint telecom = 13 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+  // Gender
+  message GenderCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.AdministrativeGenderCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  GenderCode gender = 14;
+
+  // DateOfBirth
+  .google.fhir.r4.core.Date birth_date = 15;
+
+  // Indicates if the individual is deceased or not
+  message DeceasedX {
+    option (.google.fhir.proto.is_choice_type) = true;
+    oneof choice {
+      .google.fhir.r4.core.Boolean boolean = 1;
+      .google.fhir.r4.core.DateTime date_time = 2;
+    }
+  }
+  DeceasedX deceased = 16;
+
+  // AddressInformation
+  repeated .google.fhir.r4.core.NlcoreAddressInformation address = 17;
+
+  // MaritalStatus
+  .google.fhir.r4.core.CodeableConcept marital_status = 18;
+
+  // Whether patient is part of a multiple birth
+  message MultipleBirthX {
+    option (.google.fhir.proto.is_choice_type) = true;
+    oneof choice {
+      .google.fhir.r4.core.Boolean boolean = 1;
+      .google.fhir.r4.core.Integer integer = 2;
+    }
+  }
+  MultipleBirthX multiple_birth = 19;
+
+  // Image of the patient
+  repeated .google.fhir.r4.core.Attachment photo = 20 [(.google.fhir.proto.fhir_path_constraint) = "data.empty() or contentType.exists()"];
+
+  // Contact
+  message Contact {
+    option (.google.fhir.proto.fhir_path_message_constraint) = "name.exists() or telecom.exists() or address.exists() or organization.exists()";
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // The kind of relationship
+    repeated .google.fhir.r4.core.CodeableConcept relationship = 4;
+
+    // NameInformation
+    .google.fhir.r4.core.NlcoreNameInformation name = 5 [(.google.fhir.proto.fhir_path_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-name').empty().not()", (.google.fhir.proto.fhir_path_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-name').empty().not()"];
+
+    // ContactInformation
+    repeated .google.fhir.r4.core.ContactPoint telecom = 6 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+    // AddressInformation
+    .google.fhir.r4.core.NlcoreAddressInformation address = 7;
+
+    // male | female | other | unknown
+    message GenderCode {
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+      .google.fhir.r4.core.AdministrativeGenderCode.Value value = 1;
+
+      .google.fhir.r4.core.String id = 2;
+
+      repeated .google.fhir.r4.core.Extension extension = 3;
+    }
+    GenderCode gender = 8;
+
+    // Organization that is associated with the contact
+    .google.fhir.r4.core.Reference organization = 9 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+    // The period during which this contact person or organization is valid to be contacted relating to this patient
+    .google.fhir.r4.core.Period period = 10 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+    // This contact may have further details in this RelatedPerson
+    .google.fhir.r4.core.Reference contact_person = 11 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/patient-relatedPerson"];
+
+    // field 12 reserved for Patient.contact.relationship:role which uses an unsupported slicing on CodeableConcept
+    reserved 12;
+
+    // field 13 reserved for Patient.contact.relationship:relationship which uses an unsupported slicing on CodeableConcept
+    reserved 13;
+
+    // field 14 reserved for Patient.contact.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+    reserved 14;
+
+    // field 15 reserved for Patient.contact.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+    reserved 15;
+
+  }
+  repeated Contact contact = 21;
+
+  // LanguageProficiency
+  message Communication {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // CommunicationLanguage
+    .google.fhir.r4.core.CodeableConcept language = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Language preference indicator
+    .google.fhir.r4.core.Boolean preferred = 5;
+
+    // LanguageControlListening / LanguageControlSpeaking / LanguageControlReading
+    repeated PatientProficiency language_control = 6 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/patient-proficiency"];
+
+    // Optional Extensions Element
+    repeated .google.fhir.r4.core.CodeableConcept communication_details = 7 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-LanguageProficiency.CommunicationDetails"];
+
+    // Optional Extensions Element
+    .google.fhir.r4.core.String comment = 8 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"];
+  }
+  repeated Communication communication = 22;
+
+  // A reference from one resource to another
+  repeated .google.fhir.r4.core.Reference general_practitioner = 23 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.valid_reference_type) = "Practitioner", (.google.fhir.proto.valid_reference_type) = "PractitionerRole", (.google.fhir.proto.valid_reference_type) = "PractitionerRole", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Organization that is the custodian of the patient record
+  .google.fhir.r4.core.Reference managing_organization = 24 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Link to another patient resource that concerns the same actual person
+  message Link {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // The other patient or related person resource that the link refers to
+    .google.fhir.r4.core.Reference other = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR, (.google.fhir.proto.valid_reference_type) = "Patient", (.google.fhir.proto.valid_reference_type) = "RelatedPerson", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+    // replaced-by | replaces | refer | seealso
+    message TypeCode {
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/link-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+      .google.fhir.r4.core.LinkTypeCode.Value value = 1;
+
+      .google.fhir.r4.core.String id = 2;
+
+      repeated .google.fhir.r4.core.Extension extension = 3;
+    }
+    TypeCode type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  }
+  repeated Link link = 25;
+
+  // Nationality
+  PatientNationality nationality = 26 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/patient-nationality"];
+
+  // field 27 reserved for Patient.identifier:bsn which uses an unsupported slicing on Identifier
+  reserved 27;
+
+  // field 28 reserved for Patient.name:nameInformation which uses an unsupported slicing on HumanName
+  reserved 28;
+
+  // field 29 reserved for Patient.name:nameInformation-GivenName which uses an unsupported slicing on HumanName
+  reserved 29;
+
+  // field 30 reserved for Patient.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+  reserved 30;
+
+  // field 31 reserved for Patient.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+  reserved 31;
+
+}
+
+// Auto-generated from StructureDefinition for ExtLanguageProficiencyCommunicationDetails.
+// Optional Extensions Element.
+// See http://nictiz.nl/fhir/StructureDefinition/ext-LanguageProficiency.CommunicationDetails
+message PatientExtLanguageProficiencyCommunicationDetails {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Extension";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-LanguageProficiency.CommunicationDetails";
+  // Unique id for inter-element referencing
+  .google.fhir.r4.core.String id = 1;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 2;
+
+  // CommunicationDetails
+  .google.fhir.r4.core.CodeableConcept value_codeable_concept = 3;
+}
+
+// Auto-generated from StructureDefinition for ZibAddressInformation.
+// AddressInformation.
+// See http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation
+message ZibAddressInformation {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
+  option (.google.fhir.proto.is_abstract_type) = true;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Address";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation";
+  // Unique id for inter-element referencing
+  .google.fhir.r4.core.String id = 1;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 2;
+
+  // AddressType
+  message UseCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/address-use";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.AddressUseCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  UseCode use = 3;
+
+  // AddressType
+  message TypeCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/address-type";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.AddressTypeCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  TypeCode type = 4;
+
+  // Text representation of the address
+  .google.fhir.r4.core.String text = 5;
+
+  // Street name, number, direction & P.O. Box etc.
+  message StringForLine {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.value_regex) = "[ \\r\\n\\t\\S]+";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/string";
+    // Primitive value for string
+    string value = 1;
+
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 2;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 3;
+
+    // streetName
+    .google.fhir.r4.core.String street_name = 4 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"];
+
+    // houseNumber
+    .google.fhir.r4.core.String house_number = 5 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"];
+
+    // buildingNumberSuffix
+    .google.fhir.r4.core.String house_number_letter_house_number_addition = 6 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix"];
+
+    // additionalLocator
+    .google.fhir.r4.core.String house_number_indication = 7 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"];
+
+    // unitID
+    .google.fhir.r4.core.String additional_information = 8 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-unitID"];
+  }
+  repeated StringForLine line = 6;
+
+  // PlaceOfResidence
+  .google.fhir.r4.core.String city = 7;
+
+  // Municipality
+  .google.fhir.r4.core.String district = 8;
+
+  // Sub-unit of country (abbreviations ok)
+  .google.fhir.r4.core.String state = 9;
+
+  // Postcode
+  .google.fhir.r4.core.String postal_code = 10;
+
+  // Country (e.g. can be ISO 3166 2 or 3 letter code)
+  message StringForCountry {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.value_regex) = "[ \\r\\n\\t\\S]+";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/string";
+    // Primitive value for string
+    string value = 1;
+
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 2;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 3;
+
+    // Optional Extensions Element
+    .google.fhir.r4.core.CodeableConcept country_code = 4 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"];
+  }
+  StringForCountry country = 11;
+
+  // Time period when address was/is in use
+  .google.fhir.r4.core.Period period = 12 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+  // Optional Extensions Element
+  .google.fhir.r4.core.CodeableConcept address_type = 13 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"];
+}
+
+// Auto-generated from StructureDefinition for ZibHealthProfessionalPractitioner.
+// HealthProfessional.
+// See http://nictiz.nl/fhir/StructureDefinition/zib-HealthProfessional-Practitioner
+message ZibHealthProfessionalPractitioner {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.is_abstract_type) = true;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Practitioner";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/zib-HealthProfessional-Practitioner";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "active"
+    type: TOKEN
+    expression: "Practitioner.active"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address"
+    type: STRING
+    expression: "Patient.address | Person.address | Practitioner.address | RelatedPerson.address"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-city"
+    type: STRING
+    expression: "Patient.address.city | Person.address.city | Practitioner.address.city | RelatedPerson.address.city"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-country"
+    type: STRING
+    expression: "Patient.address.country | Person.address.country | Practitioner.address.country | RelatedPerson.address.country"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-postalcode"
+    type: STRING
+    expression: "Patient.address.postalCode | Person.address.postalCode | Practitioner.address.postalCode | RelatedPerson.address.postalCode"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-state"
+    type: STRING
+    expression: "Patient.address.state | Person.address.state | Practitioner.address.state | RelatedPerson.address.state"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-use"
+    type: TOKEN
+    expression: "Patient.address.use | Person.address.use | Practitioner.address.use | RelatedPerson.address.use"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "communication"
+    type: TOKEN
+    expression: "Practitioner.communication"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "email"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='email') | Person.telecom.where(system='email') | Practitioner.telecom.where(system='email') | PractitionerRole.telecom.where(system='email') | RelatedPerson.telecom.where(system='email')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "family"
+    type: STRING
+    expression: "Patient.name.family | Practitioner.name.family"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "gender"
+    type: TOKEN
+    expression: "Patient.gender | Person.gender | Practitioner.gender | RelatedPerson.gender"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "given"
+    type: STRING
+    expression: "Patient.name.given | Practitioner.name.given"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "Practitioner.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "name"
+    type: STRING
+    expression: "Practitioner.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phone"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='phone') | Person.telecom.where(system='phone') | Practitioner.telecom.where(system='phone') | PractitionerRole.telecom.where(system='phone') | RelatedPerson.telecom.where(system='phone')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phonetic"
+    type: STRING
+    expression: "Patient.name | Person.name | Practitioner.name | RelatedPerson.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "telecom"
+    type: TOKEN
+    expression: "Patient.telecom | Person.telecom | Practitioner.telecom | PractitionerRole.telecom | RelatedPerson.telecom"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: Practitioner.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // HealthProfessionalIdentificationNumber
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // Whether this practitioner's record is in active use
+  .google.fhir.r4.core.Boolean active = 11;
+
+  // NameInformation
+  repeated .google.fhir.r4.core.HumanName name = 12;
+
+  // ContactInformation
+  repeated .google.fhir.r4.core.ContactPoint telecom = 13 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+  // AddressInformation
+  repeated .google.fhir.r4.core.ZibAddressInformation address = 14;
+
+  // Gender
+  message GenderCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.AdministrativeGenderCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  GenderCode gender = 15;
+
+  // The date  on which the practitioner was born
+  .google.fhir.r4.core.Date birth_date = 16;
+
+  // Image of the person
+  repeated .google.fhir.r4.core.Attachment photo = 17 [(.google.fhir.proto.fhir_path_constraint) = "data.empty() or contentType.exists()"];
+
+  // Certification, licenses, or training pertaining to the provision of care
+  message Qualification {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // An identifier for this qualification for the practitioner
+    repeated .google.fhir.r4.core.Identifier identifier = 4;
+
+    // Coded representation of the qualification
+    .google.fhir.r4.core.CodeableConcept code = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Period during which the qualification is valid
+    .google.fhir.r4.core.Period period = 6 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+    // Organization that regulates and issues the qualification
+    .google.fhir.r4.core.Reference issuer = 7 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+  }
+  repeated Qualification qualification = 18;
+
+  // A language the practitioner can use in patient communication
+  repeated .google.fhir.r4.core.CodeableConcept communication = 19;
+
+  // field 20 reserved for Practitioner.identifier:big which uses an unsupported slicing on Identifier
+  reserved 20;
+
+  // field 21 reserved for Practitioner.identifier:uzi which uses an unsupported slicing on Identifier
+  reserved 21;
+
+  // field 22 reserved for Practitioner.identifier:agb which uses an unsupported slicing on Identifier
+  reserved 22;
+
+  // field 23 reserved for Practitioner.name:nameInformation which uses an unsupported slicing on HumanName
+  reserved 23;
+
+  // field 24 reserved for Practitioner.name:nameInformation-GivenName which uses an unsupported slicing on HumanName
+  reserved 24;
+
+  // field 25 reserved for Practitioner.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+  reserved 25;
+
+  // field 26 reserved for Practitioner.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+  reserved 26;
+
+}
+
+// Auto-generated from StructureDefinition for ZibHealthProfessionalPractitionerRole.
+// Roles/organizations the practitioner is associated with.
+// See http://nictiz.nl/fhir/StructureDefinition/zib-HealthProfessional-PractitionerRole
+message ZibHealthProfessionalPractitionerRole {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.is_abstract_type) = true;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/PractitionerRole";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/zib-HealthProfessional-PractitionerRole";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "active"
+    type: TOKEN
+    expression: "PractitionerRole.active"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "date"
+    type: DATE
+    expression: "PractitionerRole.period"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "email"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='email') | Person.telecom.where(system='email') | Practitioner.telecom.where(system='email') | PractitionerRole.telecom.where(system='email') | RelatedPerson.telecom.where(system='email')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "endpoint"
+    type: REFERENCE
+    expression: "PractitionerRole.endpoint"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "PractitionerRole.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "location"
+    type: REFERENCE
+    expression: "PractitionerRole.location"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "organization"
+    type: REFERENCE
+    expression: "PractitionerRole.organization"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phone"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='phone') | Person.telecom.where(system='phone') | Practitioner.telecom.where(system='phone') | PractitionerRole.telecom.where(system='phone') | RelatedPerson.telecom.where(system='phone')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "practitioner"
+    type: REFERENCE
+    expression: "PractitionerRole.practitioner"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "role"
+    type: TOKEN
+    expression: "PractitionerRole.code"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "service"
+    type: REFERENCE
+    expression: "PractitionerRole.healthcareService"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "specialty"
+    type: TOKEN
+    expression: "PractitionerRole.specialty"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "telecom"
+    type: TOKEN
+    expression: "Patient.telecom | Person.telecom | Practitioner.telecom | PractitionerRole.telecom | RelatedPerson.telecom"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: PractitionerRole.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // Business Identifiers that are specific to a role/location
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // Whether this practitioner role record is in active use
+  .google.fhir.r4.core.Boolean active = 11;
+
+  // The period during which the practitioner is authorized to perform in these role(s)
+  .google.fhir.r4.core.Period period = 12 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+  // Practitioner that is able to provide the defined services for the organization
+  .google.fhir.r4.core.Reference practitioner = 13 [(.google.fhir.proto.valid_reference_type) = "Practitioner", (.google.fhir.proto.valid_reference_type) = "Practitioner", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // HealthcareProvider
+  .google.fhir.r4.core.Reference organization = 14 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Roles which this practitioner may perform
+  repeated .google.fhir.r4.core.CodeableConcept code = 15;
+
+  // Specific specialty of the practitioner
+  repeated .google.fhir.r4.core.CodeableConcept specialty = 16;
+
+  // The location(s) at which this practitioner provides care
+  repeated .google.fhir.r4.core.Reference location = 17 [(.google.fhir.proto.valid_reference_type) = "Location", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // The list of healthcare services that this worker provides for this role's Organization/Location(s)
+  repeated .google.fhir.r4.core.Reference healthcare_service = 18 [(.google.fhir.proto.valid_reference_type) = "HealthcareService", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // ContactInformation
+  repeated .google.fhir.r4.core.ContactPoint telecom = 19 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+  // Times the Service Site is available
+  message AvailableTime {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // mon | tue | wed | thu | fri | sat | sun
+    message DaysOfWeekCode {
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/days-of-week";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+      .google.fhir.r4.core.DaysOfWeekCode.Value value = 1;
+
+      .google.fhir.r4.core.String id = 2;
+
+      repeated .google.fhir.r4.core.Extension extension = 3;
+    }
+    repeated DaysOfWeekCode days_of_week = 4;
+
+    // Always available? e.g. 24 hour service
+    .google.fhir.r4.core.Boolean all_day = 5;
+
+    // Opening time of day (ignored if allDay = true)
+    .google.fhir.r4.core.Time available_start_time = 6;
+
+    // Closing time of day (ignored if allDay = true)
+    .google.fhir.r4.core.Time available_end_time = 7;
+  }
+  repeated AvailableTime available_time = 20;
+
+  // Not available during this time due to provided reason
+  message NotAvailable {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // Reason presented to the user explaining why time not available
+    .google.fhir.r4.core.String description = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Service not available from this date
+    .google.fhir.r4.core.Period during = 5 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+  }
+  repeated NotAvailable not_available = 21;
+
+  // Description of availability exceptions
+  .google.fhir.r4.core.String availability_exceptions = 22;
+
+  // Technical endpoints providing access to services operated for the practitioner with this role
+  repeated .google.fhir.r4.core.Reference endpoint = 23 [(.google.fhir.proto.valid_reference_type) = "Endpoint", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // field 24 reserved for PractitionerRole.specialty:specialty which uses an unsupported slicing on CodeableConcept
+  reserved 24;
+
+  // field 25 reserved for PractitionerRole.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+  reserved 25;
+
+  // field 26 reserved for PractitionerRole.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+  reserved 26;
+
+}
+
+// Auto-generated from StructureDefinition for ZibHealthcareProvider.
+// HealthcareProvider / OrganizationLocation.
+// See http://nictiz.nl/fhir/StructureDefinition/zib-HealthcareProvider
+message ZibHealthcareProvider {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.is_abstract_type) = true;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Location";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/zib-HealthcareProvider";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address"
+    type: STRING
+    expression: "Location.address"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-city"
+    type: STRING
+    expression: "Location.address.city"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-country"
+    type: STRING
+    expression: "Location.address.country"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-postalcode"
+    type: STRING
+    expression: "Location.address.postalCode"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-state"
+    type: STRING
+    expression: "Location.address.state"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-use"
+    type: TOKEN
+    expression: "Location.address.use"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "endpoint"
+    type: REFERENCE
+    expression: "Location.endpoint"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "Location.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "name"
+    type: STRING
+    expression: "Location.name | Location.alias"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "near"
+    type: SPECIAL
+    expression: "Location.position"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "operational-status"
+    type: TOKEN
+    expression: "Location.operationalStatus"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "organization"
+    type: REFERENCE
+    expression: "Location.managingOrganization"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "partof"
+    type: REFERENCE
+    expression: "Location.partOf"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "status"
+    type: TOKEN
+    expression: "Location.status"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "type"
+    type: TOKEN
+    expression: "Location.type"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: Location.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // Unique code or number identifying the location to its users
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // active | suspended | inactive
+  message StatusCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/location-status";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.LocationStatusCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  StatusCode status = 11;
+
+  // The operational status of the location (typically only for a bed/room)
+  .google.fhir.r4.core.Coding operational_status = 12;
+
+  // LocationName
+  .google.fhir.r4.core.String name = 13;
+
+  // A list of alternate names that the location is known as, or was known as, in the past
+  repeated .google.fhir.r4.core.String alias = 14;
+
+  // Additional details about the location that could be displayed as further information to identify the location beyond its name
+  .google.fhir.r4.core.String description = 15;
+
+  // instance | kind
+  message ModeCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/location-mode";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.LocationModeCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  ModeCode mode = 16;
+
+  // Type of function performed
+  repeated .google.fhir.r4.core.CodeableConcept type = 17;
+
+  // ContactInformation
+  repeated .google.fhir.r4.core.ContactPoint telecom = 18 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+  // AddressInformation
+  .google.fhir.r4.core.ZibAddressInformation address = 19;
+
+  // Physical form of the location
+  .google.fhir.r4.core.CodeableConcept physical_type = 20;
+
+  // The absolute geographic location
+  message Position {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // Longitude with WGS84 datum
+    .google.fhir.r4.core.Decimal longitude = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Latitude with WGS84 datum
+    .google.fhir.r4.core.Decimal latitude = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Altitude with WGS84 datum
+    .google.fhir.r4.core.Decimal altitude = 6;
+  }
+  Position position = 21;
+
+  // Organization responsible for provisioning and upkeep
+  .google.fhir.r4.core.Reference managing_organization = 22 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Another Location this one is physically a part of
+  .google.fhir.r4.core.Reference part_of = 23 [(.google.fhir.proto.valid_reference_type) = "Location", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // What days/times during a week is this location usually open
+  message HoursOfOperation {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // mon | tue | wed | thu | fri | sat | sun
+    message DaysOfWeekCode {
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/days-of-week";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+      .google.fhir.r4.core.DaysOfWeekCode.Value value = 1;
+
+      .google.fhir.r4.core.String id = 2;
+
+      repeated .google.fhir.r4.core.Extension extension = 3;
+    }
+    repeated DaysOfWeekCode days_of_week = 4;
+
+    // The Location is open all day
+    .google.fhir.r4.core.Boolean all_day = 5;
+
+    // Time that the Location opens
+    .google.fhir.r4.core.Time opening_time = 6;
+
+    // Time that the Location closes
+    .google.fhir.r4.core.Time closing_time = 7;
+  }
+  repeated HoursOfOperation hours_of_operation = 24;
+
+  // Description of availability exceptions
+  .google.fhir.r4.core.String availability_exceptions = 25;
+
+  // Technical endpoints providing access to services operated for the location
+  repeated .google.fhir.r4.core.Reference endpoint = 26 [(.google.fhir.proto.valid_reference_type) = "Endpoint", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // field 27 reserved for Location.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+  reserved 27;
+
+  // field 28 reserved for Location.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+  reserved 28;
+
+}
+
+// Auto-generated from StructureDefinition for ZibHealthcareProviderOrganization.
+// HealthcareProvider.
+// See http://nictiz.nl/fhir/StructureDefinition/zib-HealthcareProvider-Organization
+message ZibHealthcareProviderOrganization {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.is_abstract_type) = true;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Organization";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/zib-HealthcareProvider-Organization";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "(identifier.count() + name.count()) > 0";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "active"
+    type: TOKEN
+    expression: "Organization.active"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address"
+    type: STRING
+    expression: "Organization.address"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-city"
+    type: STRING
+    expression: "Organization.address.city"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-country"
+    type: STRING
+    expression: "Organization.address.country"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-postalcode"
+    type: STRING
+    expression: "Organization.address.postalCode"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-state"
+    type: STRING
+    expression: "Organization.address.state"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-use"
+    type: TOKEN
+    expression: "Organization.address.use"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "endpoint"
+    type: REFERENCE
+    expression: "Organization.endpoint"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "Organization.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "name"
+    type: STRING
+    expression: "Organization.name | Organization.alias"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "partof"
+    type: REFERENCE
+    expression: "Organization.partOf"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phonetic"
+    type: STRING
+    expression: "Organization.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "type"
+    type: TOKEN
+    expression: "Organization.type"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: Organization.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // HealthcareProviderIdentificationNumber
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // Whether the organization's record is still in active use
+  .google.fhir.r4.core.Boolean active = 11;
+
+  // Kind of organization
+  repeated .google.fhir.r4.core.CodeableConcept type = 12;
+
+  // OrganizationName
+  .google.fhir.r4.core.String name = 13;
+
+  // A list of alternate names that the organization is known as, or was known as in the past
+  repeated .google.fhir.r4.core.String alias = 14;
+
+  // A contact detail for the organization
+  repeated .google.fhir.r4.core.ContactPoint telecom = 15 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()", (.google.fhir.proto.fhir_path_constraint) = "where(use = 'home').empty()"];
+
+  // An address for the organization
+  repeated .google.fhir.r4.core.Address address = 16 [(.google.fhir.proto.fhir_path_constraint) = "where(use = 'home').empty()"];
+
+  // The organization of which this organization forms a part
+  .google.fhir.r4.core.Reference part_of = 17 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Contact for the organization for a certain purpose
+  message Contact {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // The type of contact
+    .google.fhir.r4.core.CodeableConcept purpose = 4;
+
+    // A name associated with the contact
+    .google.fhir.r4.core.HumanName name = 5;
+
+    // Contact details (telephone, email, etc.)  for a contact
+    repeated .google.fhir.r4.core.ContactPoint telecom = 6 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+    // Visiting or postal addresses for the contact
+    .google.fhir.r4.core.Address address = 7;
+  }
+  repeated Contact contact = 18;
+
+  // Technical endpoints providing access to services operated for the organization
+  repeated .google.fhir.r4.core.Reference endpoint = 19 [(.google.fhir.proto.valid_reference_type) = "Endpoint", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // field 20 reserved for Organization.identifier:ura which uses an unsupported slicing on Identifier
+  reserved 20;
+
+  // field 21 reserved for Organization.identifier:agb which uses an unsupported slicing on Identifier
+  reserved 21;
+
+  // field 22 reserved for Organization.type:departmentSpecialty which uses an unsupported slicing on CodeableConcept
+  reserved 22;
+
+  // field 23 reserved for Organization.type:organizationType which uses an unsupported slicing on CodeableConcept
+  reserved 23;
+
+}
+
+// Auto-generated from StructureDefinition for ZibNameInformation.
+// NameInformation.
+// See http://nictiz.nl/fhir/StructureDefinition/zib-NameInformation
+message ZibNameInformation {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_COMPLEX_TYPE;
+  option (.google.fhir.proto.is_abstract_type) = true;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/HumanName";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/zib-NameInformation";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-name').empty().not()";
+  option (.google.fhir.proto.fhir_path_message_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-name').empty().not()";
+  // Unique id for inter-element referencing
+  .google.fhir.r4.core.String id = 1;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 2;
+
+  // usual | official | temp | nickname | anonymous | old | maiden
+  message UseCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/name-use";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.NameUseCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  UseCode use = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+  // Text representation of the full name
+  .google.fhir.r4.core.String text = 4;
+
+  // Family name (often called 'Surname')
+  message StringForFamily {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.value_regex) = "[ \\r\\n\\t\\S]+";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/string";
+    // Primitive value for string
+    string value = 1;
+
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 2;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 3;
+
+    // Voorvoegsel derived from person's own surname
+    .google.fhir.r4.core.String prefix = 4 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"];
+
+    // Portion derived from person's own surname
+    .google.fhir.r4.core.String last_name = 5 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"];
+
+    // Voorvoegsel derived from person's partner's surname
+    .google.fhir.r4.core.String partner_prefix = 6 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix"];
+
+    // Portion derived from person's partner's surname
+    .google.fhir.r4.core.String partner_last_name = 7 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-partner-name"];
+  }
+  StringForFamily family = 5;
+
+  // FirstName / Initial
+  message StringForGiven {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.value_regex) = "[ \\r\\n\\t\\S]+";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/string";
+    // Primitive value for string
+    string value = 1;
+
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 2;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 3 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN | VV
+    repeated .google.fhir.r4.core.HumanNameENQualifier.ValueCode given_or_initial = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR, (.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"];
+  }
+  repeated StringForGiven given = 6;
+
+  // Titles
+  repeated .google.fhir.r4.core.String prefix = 7;
+
+  // Titles
+  repeated .google.fhir.r4.core.String suffix = 8;
+
+  // Time period when name was/is in use
+  .google.fhir.r4.core.Period period = 9 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+  // Preferred display order of name parts
+  .google.fhir.r4.core.HumanNameAssemblyOrder.ValueCode name_usage = 10 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"];
+}
+
+// Auto-generated from StructureDefinition for ZibPatient.
+// Patient.
+// See http://nictiz.nl/fhir/StructureDefinition/zib-Patient
+message ZibPatient {
+  option (.google.fhir.proto.structure_definition_kind) = KIND_RESOURCE;
+  option (.google.fhir.proto.is_abstract_type) = true;
+  option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/Patient";
+  option (.google.fhir.proto.fhir_structure_definition_url) = "http://nictiz.nl/fhir/StructureDefinition/zib-Patient";
+  option (.google.fhir.proto.search_parameter) = {
+    name: "Example Search Parameter on an extension"
+    type: REFERENCE
+    expression: "DocumentReference.extension('http://example.org/fhir/StructureDefinition/participation-agreement')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "active"
+    type: TOKEN
+    expression: "Patient.active"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address"
+    type: STRING
+    expression: "Patient.address | Person.address | Practitioner.address | RelatedPerson.address"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-city"
+    type: STRING
+    expression: "Patient.address.city | Person.address.city | Practitioner.address.city | RelatedPerson.address.city"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-country"
+    type: STRING
+    expression: "Patient.address.country | Person.address.country | Practitioner.address.country | RelatedPerson.address.country"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-postalcode"
+    type: STRING
+    expression: "Patient.address.postalCode | Person.address.postalCode | Practitioner.address.postalCode | RelatedPerson.address.postalCode"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-state"
+    type: STRING
+    expression: "Patient.address.state | Person.address.state | Practitioner.address.state | RelatedPerson.address.state"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "address-use"
+    type: TOKEN
+    expression: "Patient.address.use | Person.address.use | Practitioner.address.use | RelatedPerson.address.use"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "birthdate"
+    type: DATE
+    expression: "Patient.birthDate | Person.birthDate | RelatedPerson.birthDate"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "death-date"
+    type: DATE
+    expression: "(Patient.deceased as dateTime)"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "deceased"
+    type: TOKEN
+    expression: "Patient.deceased.exists() and Patient.deceased != false"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "email"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='email') | Person.telecom.where(system='email') | Practitioner.telecom.where(system='email') | PractitionerRole.telecom.where(system='email') | RelatedPerson.telecom.where(system='email')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "family"
+    type: STRING
+    expression: "Patient.name.family | Practitioner.name.family"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "gender"
+    type: TOKEN
+    expression: "Patient.gender | Person.gender | Practitioner.gender | RelatedPerson.gender"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "general-practitioner"
+    type: REFERENCE
+    expression: "Patient.generalPractitioner"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "given"
+    type: STRING
+    expression: "Patient.name.given | Practitioner.name.given"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "identifier"
+    type: TOKEN
+    expression: "Patient.identifier"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "language"
+    type: TOKEN
+    expression: "Patient.communication.language"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "link"
+    type: REFERENCE
+    expression: "Patient.link.other"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "name"
+    type: STRING
+    expression: "Patient.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "organization"
+    type: REFERENCE
+    expression: "Patient.managingOrganization"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phone"
+    type: TOKEN
+    expression: "Patient.telecom.where(system='phone') | Person.telecom.where(system='phone') | Practitioner.telecom.where(system='phone') | PractitionerRole.telecom.where(system='phone') | RelatedPerson.telecom.where(system='phone')"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "phonetic"
+    type: STRING
+    expression: "Patient.name | Person.name | Practitioner.name | RelatedPerson.name"
+  };
+  option (.google.fhir.proto.search_parameter) = {
+    name: "telecom"
+    type: TOKEN
+    expression: "Patient.telecom | Person.telecom | Practitioner.telecom | PractitionerRole.telecom | RelatedPerson.telecom"
+  };
+  // Logical id of this artifact
+  .google.fhir.r4.core.Id id = 1;
+
+  // Metadata about the resource
+  .google.fhir.r4.core.Meta meta = 2;
+
+  // A set of rules under which this content was created
+  .google.fhir.r4.core.Uri implicit_rules = 3;
+
+  // Language of the resource content
+  .google.fhir.r4.core.Code language = 4;
+
+  // Text summary of the resource, for human interpretation
+  .google.fhir.r4.core.Narrative text = 5;
+
+  // Contained, inline Resources
+  repeated .google.protobuf.Any contained = 6;
+
+  // Field 7 reserved for strongly-typed ContainedResource for id: Patient.contained
+  reserved 7;
+
+  // Additional content defined by implementations
+  repeated .google.fhir.r4.core.Extension extension = 8;
+
+  // Extensions that cannot be ignored
+  repeated .google.fhir.r4.core.Extension modifier_extension = 9;
+
+  // PatientIdentificationNumber
+  repeated .google.fhir.r4.core.Identifier identifier = 10;
+
+  // Whether this patient's record is in active use
+  .google.fhir.r4.core.Boolean active = 11;
+
+  // NameInformation / PayerName
+  repeated .google.fhir.r4.core.HumanName name = 12;
+
+  // ContactInformation
+  repeated .google.fhir.r4.core.ContactPoint telecom = 13 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+  // Gender
+  message GenderCode {
+    option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+    option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+    option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+    .google.fhir.r4.core.AdministrativeGenderCode.Value value = 1;
+
+    .google.fhir.r4.core.String id = 2;
+
+    repeated .google.fhir.r4.core.Extension extension = 3;
+  }
+  GenderCode gender = 14;
+
+  // DateOfBirth
+  .google.fhir.r4.core.Date birth_date = 15;
+
+  // Indicates if the individual is deceased or not
+  message DeceasedX {
+    option (.google.fhir.proto.is_choice_type) = true;
+    oneof choice {
+      .google.fhir.r4.core.Boolean boolean = 1;
+      .google.fhir.r4.core.DateTime date_time = 2;
+    }
+  }
+  DeceasedX deceased = 16;
+
+  // AddressInformation
+  repeated .google.fhir.r4.core.ZibAddressInformation address = 17;
+
+  // MaritalStatus
+  .google.fhir.r4.core.CodeableConcept marital_status = 18;
+
+  // Whether patient is part of a multiple birth
+  message MultipleBirthX {
+    option (.google.fhir.proto.is_choice_type) = true;
+    oneof choice {
+      .google.fhir.r4.core.Boolean boolean = 1;
+      .google.fhir.r4.core.Integer integer = 2;
+    }
+  }
+  MultipleBirthX multiple_birth = 19;
+
+  // Image of the patient
+  repeated .google.fhir.r4.core.Attachment photo = 20 [(.google.fhir.proto.fhir_path_constraint) = "data.empty() or contentType.exists()"];
+
+  // Contact
+  message Contact {
+    option (.google.fhir.proto.fhir_path_message_constraint) = "name.exists() or telecom.exists() or address.exists() or organization.exists()";
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // The kind of relationship
+    repeated .google.fhir.r4.core.CodeableConcept relationship = 4;
+
+    // NameInformation
+    .google.fhir.r4.core.ZibNameInformation name = 5 [(.google.fhir.proto.fhir_path_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-own-name').empty().not()", (.google.fhir.proto.fhir_path_constraint) = "family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix').empty().not() implies family.extension('http://hl7.org/fhir/StructureDefinition/humanname-partner-name').empty().not()"];
+
+    // ContactInformation
+    repeated .google.fhir.r4.core.ContactPoint telecom = 6 [(.google.fhir.proto.fhir_path_constraint) = "value.empty() or system.exists()"];
+
+    // AddressInformation
+    .google.fhir.r4.core.ZibAddressInformation address = 7;
+
+    // male | female | other | unknown
+    message GenderCode {
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/administrative-gender";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+      .google.fhir.r4.core.AdministrativeGenderCode.Value value = 1;
+
+      .google.fhir.r4.core.String id = 2;
+
+      repeated .google.fhir.r4.core.Extension extension = 3;
+    }
+    GenderCode gender = 8;
+
+    // Organization that is associated with the contact
+    .google.fhir.r4.core.Reference organization = 9 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+    // The period during which this contact person or organization is valid to be contacted relating to this patient
+    .google.fhir.r4.core.Period period = 10 [(.google.fhir.proto.fhir_path_constraint) = "start.hasValue().not() or end.hasValue().not() or (start <= end)"];
+
+    // This contact may have further details in this RelatedPerson
+    .google.fhir.r4.core.Reference contact_person = 11 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/patient-relatedPerson"];
+
+    // field 12 reserved for Patient.contact.relationship:role which uses an unsupported slicing on CodeableConcept
+    reserved 12;
+
+    // field 13 reserved for Patient.contact.relationship:relationship which uses an unsupported slicing on CodeableConcept
+    reserved 13;
+
+    // field 14 reserved for Patient.contact.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+    reserved 14;
+
+    // field 15 reserved for Patient.contact.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+    reserved 15;
+
+  }
+  repeated Contact contact = 21;
+
+  // LanguageProficiency
+  message Communication {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // CommunicationLanguage
+    .google.fhir.r4.core.CodeableConcept language = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+
+    // Language preference indicator
+    .google.fhir.r4.core.Boolean preferred = 5;
+
+    // LanguageControlListening / LanguageControlSpeaking / LanguageControlReading
+    repeated PatientProficiency language_control = 6 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/patient-proficiency"];
+
+    // Optional Extensions Element
+    repeated .google.fhir.r4.core.CodeableConcept communication_details = 7 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-LanguageProficiency.CommunicationDetails"];
+
+    // Optional Extensions Element
+    .google.fhir.r4.core.String comment = 8 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"];
+  }
+  repeated Communication communication = 22;
+
+  // Patient's nominated primary care provider
+  repeated .google.fhir.r4.core.Reference general_practitioner = 23 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.valid_reference_type) = "Practitioner", (.google.fhir.proto.valid_reference_type) = "PractitionerRole", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Organization that is the custodian of the patient record
+  .google.fhir.r4.core.Reference managing_organization = 24 [(.google.fhir.proto.valid_reference_type) = "Organization", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+  // Link to another patient resource that concerns the same actual person
+  message Link {
+    // Unique id for inter-element referencing
+    .google.fhir.r4.core.String id = 1;
+
+    // Additional content defined by implementations
+    repeated .google.fhir.r4.core.Extension extension = 2;
+
+    // Extensions that cannot be ignored even if unrecognized
+    repeated .google.fhir.r4.core.Extension modifier_extension = 3;
+
+    // The other patient or related person resource that the link refers to
+    .google.fhir.r4.core.Reference other = 4 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR, (.google.fhir.proto.valid_reference_type) = "Patient", (.google.fhir.proto.valid_reference_type) = "RelatedPerson", (.google.fhir.proto.fhir_path_constraint) = "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))"];
+
+    // replaced-by | replaces | refer | seealso
+    message TypeCode {
+      option (.google.fhir.proto.structure_definition_kind) = KIND_PRIMITIVE_TYPE;
+      option (.google.fhir.proto.fhir_valueset_url) = "http://hl7.org/fhir/ValueSet/link-type";
+      option (.google.fhir.proto.fhir_profile_base) = "http://hl7.org/fhir/StructureDefinition/code";
+      .google.fhir.r4.core.LinkTypeCode.Value value = 1;
+
+      .google.fhir.r4.core.String id = 2;
+
+      repeated .google.fhir.r4.core.Extension extension = 3;
+    }
+    TypeCode type = 5 [(.google.fhir.proto.validation_requirement) = REQUIRED_BY_FHIR];
+  }
+  repeated Link link = 25;
+
+  // Nationality
+  PatientNationality nationality = 26 [(.google.fhir.proto.fhir_inlined_extension_url) = "http://hl7.org/fhir/StructureDefinition/patient-nationality"];
+
+  // field 27 reserved for Patient.identifier:bsn which uses an unsupported slicing on Identifier
+  reserved 27;
+
+  // field 28 reserved for Patient.name:nameInformation which uses an unsupported slicing on HumanName
+  reserved 28;
+
+  // field 29 reserved for Patient.name:nameInformation-GivenName which uses an unsupported slicing on HumanName
+  reserved 29;
+
+  // field 30 reserved for Patient.telecom:telephoneNumbers which uses an unsupported slicing on ContactPoint
+  reserved 30;
+
+  // field 31 reserved for Patient.telecom:emailAddresses which uses an unsupported slicing on ContactPoint
+  reserved 31;
+
+}
+

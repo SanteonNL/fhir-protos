@@ -125,18 +125,58 @@ fhir_package(
 )
 
 # NL-Core Profiles for FHIR R4
+# temp commands
+# bazel build //proto/google/fhir/proto/r4:nlcore_proto_zip --verbose_failures
 
-# fhir_package(
-#     name = "nlcore_r4_package",
-#     definitions = glob(["nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/*.json",
-#     ], exclude = [
-#                 "nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/.index*.*",
-#             ],) ,
-#     package_info = "nlcore_r4_package_info.prototxt",
-# )
+# unzip bazel-bin/proto/google/fhir/proto/r4/nlcore.zip -d proto/google/fhir/proto/r4
+
+# protoc --go_opt=Mproto/google/fhir/proto/r4/nlcore.proto=github.com/santeonnl/fhir-protos/go/proto/google/fhir/proto/r4/nlcore_go_proto --go_out=tmp proto/google/fhir/proto/r4/nlcore.proto
+
+# sudo apt install python3-pip
+# pip install -r bazel/requirements.txt
+
 
 fhir_package(
     name = "nlcore_r4_package",
-    definitions = [".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-AddressInformation.json",".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/ext-CodeSpecification.json"],
+    definitions = [".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-AddressInformation.json",#
+    ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-NameInformation.json",#
+    ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-HealthProfessional-PractitionerRole.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-HealthProfessional-Practitioner.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-HealthcareProvider-Organization.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-HealthcareProvider.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.nl-core#0.10.0-beta.1/package/nl-core-Patient.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/ext-Comment.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-HealthProfessional-Practitioner.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-HealthcareProvider-Organization.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-HealthcareProvider.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-HealthProfessional-PractitionerRole.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-Patient.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-NameInformation.json",#
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/ext-CodeSpecification.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/ext-AddressInformation.AddressType.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-AddressInformation.json",#
+    # PatientNationality
+    # PatientProficiency
+    # ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-Patient.json",
+    # ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/zib-Patient.json",
+    ".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/ext-LanguageProficiency.CommunicationDetails.json"]
+     + [".fhir/packages/nictiz.fhir.nl.r4.zib2020#0.10.0-beta.1/package/package.json"],
     package_info = "nlcore_r4_package_info.prototxt",
 )
